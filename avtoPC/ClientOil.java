@@ -1,0 +1,25 @@
+package avtoPC;
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+public class ClientOil {
+	static final int PORT = 5555;
+	public static void main(String[] args) throws UnknownHostException, IOException {
+		Socket socket = new Socket("localhost", OilAndTempServer.PORT);
+		PrintStream out = new PrintStream(socket.getOutputStream());
+		Scanner in = new Scanner(socket.getInputStream());
+		Scanner cin = new Scanner(System.in);
+		
+		System.out.println(in.nextLine());
+		String input = "oil";
+		out.println(input);
+		Random rand = new Random();
+		while(true){		
+		int randomNum = rand.nextInt((100 - 1) + 1) + 1;
+		out.println(randomNum);		
+		}
+	}
+
+}
